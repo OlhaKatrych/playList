@@ -30,7 +30,7 @@
   
   h1 {
     font-size: 1.125rem;
-    line-height: 1.6;
+    line-height: 1.2;
   }
   
   h2 {
@@ -96,6 +96,7 @@
     color: var(--secondary-color);
     margin: 0 10px;
     font-family: var(--font-headline);
+    text-align: center;
    
   }
   
