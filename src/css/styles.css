@@ -5,15 +5,15 @@
     --app-background-color: #4d4d62;
     --background-color: #1b1b32;
     --foreground-color: #3b3b4f;
-    --highlight-color: #f1be32;
+    --highlight-color: #e7e7ab;
   
     /* font sizes */
     --root-font-size: 16px;
     font-size: var(--root-font-size);
   
     /* font-families */
-    --font-headline: "Roboto Mono", monospace;
-    --font-family: "Lato", sans-serif;
+    --font-headline: "Montserrat", sans-serif;
+    --font-family: "Montserrat", sans-serif;
   }
   
   *,
@@ -58,7 +58,6 @@
   }
   
   .player {
-    height: 260px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -101,8 +100,12 @@
   }
   
   .player-content {
+    position: relative;
     display: flex;
     background-color: var(--foreground-color);
+    background-image: url("https://wallpapers.com/images/high/imagine-dragons-billboard-poster-1g4fd39gk85uiolt.webp");
+    background-repeat: no-repeat;
+    background-size:cover;
     width: 430px;
     height: 200px;
     column-gap: 13px;
@@ -110,28 +113,17 @@
     justify-content: center;
   }
   
-  #player-album-art {
-    background-color: var(--secondary-color);
-    border: 6px solid var(--background-color);
-  }
-  
-  #player-album-art img {
-    width: 100%;
-    display: block;
-  }
-  
   .player-display {
+    position: absolute;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    padding: 14px;
-    background-color: var(--background-color);
-    height: 153px;
-    width: 226px;
-  }
-  
-  .player-display-song-artist {
-    height: 80px;
+    padding: 10px;
+    background-color: transparent;
+    height: auto;
+    width: 100%;
+    
   }
   
   .player-buttons svg {
