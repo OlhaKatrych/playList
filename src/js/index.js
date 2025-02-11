@@ -1,12 +1,14 @@
-import allSongs from "./array.json";
+import { dataSong } from "./dataSong";
 import { createMurkup } from "./createMarkup";
-import { sortedSongs } from "./helper";
+import { playSong } from "./playSong";
 
-const audio = new Audio();
-let userData = {
-  songs: [...allSongs],
-  currentSong: null,
-  songCurrentTime: 0,
-};
+const playButton = document.getElementById("play");
 
-createMurkup(sortedSongs(allSongs));
+createMurkup(dataSong.songs);
+playButton.addEventListener("click", () => {
+  if (dataSong.currentSong === null) {
+    playSong(dataSong.songs[0].id);
+  } else {
+    playSong(dataSong.currentSong.id);
+  }
+});

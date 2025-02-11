@@ -1,9 +1,10 @@
+import { playSong } from "./playSong";
 const playlistSongs = document.querySelector("#playlist-songs");
 export const createMurkup = (array) => {
   const songsMarkup = array
     .map((song) => {
       return `   <li id="song-${song.id}" class="playlist-song">
-        <button class="playlist-song-info" onclick="playSong(${song.id})">
+        <button class="playlist-song-info" data-id="${song.id}">
             <span class="playlist-song-title">${song.title}</span>
             <span class="playlist-song-artist">${song.artist}</span>
             <span class="playlist-song-duration">${song.duration}</span>
@@ -16,4 +17,10 @@ export const createMurkup = (array) => {
     })
     .join("");
   playlistSongs.innerHTML = songsMarkup;
+  playlistSongs.addEventListener("click", (e) => {
+    const button = e.target.closest(".playlist-song-info");
+    if (!button) return;
+    const songId = button.dataset.id;
+    playSong(songId);
+  });
 };
