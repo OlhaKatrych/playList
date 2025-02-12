@@ -1,6 +1,6 @@
-import { dataSong } from "./dataSong";
-import { createMurkup } from "./createMarkup";
-import { playSong } from "./playSong";
+import { dataSong } from "../js/dataSong";
+import { createMurkup } from "../js/createMarkup";
+import { playSong } from "../js/playSong";
 
 const playButton = document.getElementById("play");
 
