@@ -1,4 +1,4 @@
-import { playSong } from "./playSong";
+import { playSong } from "../js/playSong";
 const playlistSongs = document.querySelector("#playlist-songs");
 export const createMurkup = (array) => {
   const songsMarkup = array

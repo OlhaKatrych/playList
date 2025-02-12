@@ -1,4 +1,4 @@
-import { dataSong } from "./dataSong";
+import { dataSong } from "../js/dataSong";
 
 const audio = new Audio();
 export const playSong = (id) => {

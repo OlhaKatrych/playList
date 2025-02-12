@@ -1,5 +1,5 @@
-import allSongs from "./array.json";
-import { sortedSongs } from "./helper";
+import allSongs from "../js/array.json";
+import { sortedSongs } from "../js/helper";
 export let dataSong = {
     songs: sortedSongs([...allSongs]),
     currentSong: null,
