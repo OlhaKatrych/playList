@@ -3,7 +3,7 @@
     --primary-color: #dfdfe2;
     --secondary-color: #ffffff;
     --app-background-color: #121212;
-    --background-color: #5D001E;
+    --background-color: #293133;
     --foreground-color: #232B2B;
     --highlight-color: #e7e7ab;
   
@@ -103,11 +103,11 @@
     position: relative;
     display: flex;
     background-color: var(--foreground-color);
-    background-image: url("https://wallpapers.com/images/high/imagine-dragons-billboard-poster-1g4fd39gk85uiolt.webp");
+    background-image: url("https://bnmusic.kz/wp-content/uploads/2020/04/imagine-dragons-to-perform-at-uefa-champions-league-final-opening-ceremony-706x471.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     width: 430px;
-    height: 200px;
+    height: 240px;
     column-gap: 13px;
     align-items: center;
     justify-content: center;
