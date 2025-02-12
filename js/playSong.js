@@ -1,16 +1,18 @@
-import { dataSong } from "./dataSong.js";
+import {getDataSong}  from "./getDataFromJASON.js";
 
 const audio = new Audio();
+
+const dataSongs = await getDataSong();
 export const playSong = (id) => {
-  const song = dataSong?.songs.find((song) => song.id === Number(id));
+  const song = dataSongs?.songs.find((song) => song.id === Number(id));
   audio.src = song.src;
   audio.title = song.title;
 
-  if (dataSong.currentSong === null || dataSong.currentSong.id !== id) {
+  if (dataSongs.currentSong === null || dataSongs.currentSong.id !== id) {
     audio.currentTime = 0;
   } else {
-    audio.currentTime = dataSong.songCurrentTime;
+    audio.currentTime = dataSongs.songCurrentTime;
   }
-  dataSong.currentSong = song;
+  dataSongs.currentSong = song;
   audio.play();
 };
