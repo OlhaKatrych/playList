@@ -27,10 +27,6 @@ export const createMurkup = (array) => {
     if (!button) return;
     const songId = button.dataset.id;
     playSong(songId);
-    const equalizer = document.querySelectorAll(".equalizer");
-    if(equalizer.style.visibility === "visible"){
-      equalizer.classList.remove(".equalizer")
-    }
   });
 
   document.querySelectorAll(".playlist-song-info").forEach((item) => {

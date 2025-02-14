@@ -146,7 +146,7 @@
     outline-color: var(--highlight-color);
     text-align: center;
   }
-  
+ 
   .playlist-song {
     outline-color: var(--highlight-color);
   }
@@ -203,7 +203,8 @@
     font-family: var(--font-family);
    }
 
-   .playlist-song-info:hover {
+   .playlist-song-info:hover,
+   .playlist-song-info:focus {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
    }
@@ -219,10 +220,10 @@
 }
 
 .equalizer span {
+  display: inline-block;
   width: 1px;
   height: 100%;
   background-color: var(--highlight-color);
-  display: inline-block;
   animation: bounce 1s infinite;
   animation-delay: calc(var(--delay, 0) * 0.2s);
 }
