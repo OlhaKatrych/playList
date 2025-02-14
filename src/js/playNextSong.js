@@ -1,4 +1,4 @@
-import { playSong, dataSongs } from "./playSong";
+import { playSong, dataSongs } from "./playSong.js";
 export const pauseButton = document.querySelector(".pause");
 export const nextButton = document.querySelector(".next");
 const getCurrentIndexSong = () =>
@@ -12,6 +12,6 @@ export const playNextSong = () => {
     const nextSongs = dataSongs.songs[currentIndex + 1];
     playSong(nextSongs.id);
     pauseButton.classList.remove("pause");
-    ne.equalizer
+    ne.equalizer;
   }
 };
