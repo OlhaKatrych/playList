@@ -8,6 +8,11 @@ export const createMurkup = (array) => {
             <span class="playlist-song-title">${song.title}</span>
             <span class="playlist-song-artist">${song.artist}</span>
             <span class="playlist-song-duration">${song.duration}</span>
+            <div class="equalizer" id="equalizer">
+            <span class="equalizer-span"></span>
+            <span class="equalizer-span"></span>
+            <span class="equalizer-span"></span>
+          </div>
         </button>
         <button type="button" class="playlist-song-delete" aria-label="Delete ${song.title}">
             <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="8" fill="#4d4d62"/>
@@ -22,5 +27,22 @@ export const createMurkup = (array) => {
     if (!button) return;
     const songId = button.dataset.id;
     playSong(songId);
+  });
+
+  document.querySelectorAll(".playlist-song-info").forEach((item) => {
+    item.addEventListener("click", function () {
+      // Знаходимо еквалайзер всередині треку
+      const equalizer = this.querySelector(".equalizer");
+
+      // Увімкнення/вимкнення ефекту програвання
+      if (
+        equalizer.style.visibility === "hidden" ||
+        equalizer.style.visibility === ""
+      ) {
+        equalizer.style.visibility = "visible";
+      } else {
+        equalizer.style.visibility = "hidden";
+      }
+    });
   });
 };

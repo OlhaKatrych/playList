@@ -1,7 +1,6 @@
 import { getDataSong } from "./getDataFromJASON.js";
 
 const audio = new Audio();
-
 const dataSongs = await getDataSong();
 export const playSong = (id) => {
   const song = dataSongs.songs.find((song) => song.id === Number(id));
