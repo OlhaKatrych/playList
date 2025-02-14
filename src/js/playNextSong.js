@@ -12,6 +12,6 @@ export const playNextSong = () => {
     const nextSongs = dataSongs.songs[currentIndex + 1];
     playSong(nextSongs.id);
     pauseButton.classList.remove("pause");
-    ne.equalizer;
+    nextButton.classList.add("next");
   }
 };
