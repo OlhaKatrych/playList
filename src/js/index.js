@@ -1,7 +1,5 @@
-import { dataSongs } from "./playSong";
-import { createMurkup } from "./createMarkup.js";
-import { playSong } from "./playSong.js";
-import { audio, playButton } from "./playSong";
+import { dataSongs, playSong, audio, playButton } from "./playSong";
+import { createMurkup } from "./createMarkup";
 import { playNextSong } from "./playNextSong";
 import { pauseButton, nextButton } from "./playNextSong";
 
