@@ -137,6 +137,14 @@
     justify-content: space-around;
   }
   
+  .pause > svg {
+    fill: var(--highlight-color);
+  }
+
+  .next > svg {
+    fill: var(--highlight-color);
+  }
+  
   button {
     background: transparent;
     border: none;
