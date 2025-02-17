@@ -1,9 +1,13 @@
-import { dataSongs, playSong, audio, playButton } from "./playSong.js";
+import { dataSongs, playSong, playButton } from "./playSong.js";
 import { createMurkup } from "./createMarkup.js";
-import { playNextSong, pauseButton, nextButton } from "./playNextSong.js";
+import { playNextSong, nextButton } from "./playNextSong.js";
+import { previousButton, playPreviousSong } from "./playPreviousSong.js";
+import { pauseButton, pauseSong } from "./pauseSong.js";
 
 createMurkup(dataSongs.songs);
 
+playButton.classList.remove("play");
+previousButton.classList.remove("previous");
 nextButton.classList.remove("next");
 pauseButton.classList.remove("pause");
 
@@ -15,15 +19,12 @@ playButton.addEventListener("click", () => {
   }
   pauseButton.classList.remove("pause");
   nextButton.classList.remove("next");
-  playButton.classList.add("playing");
+  previousButton.classList.remove("previous");
+  playButton.classList.add("play");
 });
 
-pauseButton.addEventListener("click", () => {
-  dataSongs.songCurrentTime = audio.currentTime;
-  playButton.classList.remove("playing");
-  nextButton.classList.remove("next");
-  pauseButton.classList.add("pause");
-  audio.pause();
-});
+pauseButton.addEventListener("click", pauseSong);
 
 nextButton.addEventListener("click", playNextSong);
+
+previousButton.addEventListener("click", playPreviousSong);

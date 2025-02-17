@@ -1,8 +1,8 @@
-import { playSong, dataSongs } from "./playSong.js";
-export const pauseButton = document.querySelector(".pause");
+import { dataSongs, playSong, playButton } from "./playSong.js";
+import { getCurrentIndexSong } from "./helper.js";
+import { pauseButton } from "./pauseSong.js";
+import { previousButton } from "./playPreviousSong.js";
 export const nextButton = document.querySelector(".next");
-const getCurrentIndexSong = () =>
-  dataSongs.songs.indexOf(dataSongs.currentSong);
 
 export const playNextSong = () => {
   if (dataSongs.currentSong === null) {
@@ -11,7 +11,9 @@ export const playNextSong = () => {
     const currentIndex = getCurrentIndexSong();
     const nextSongs = dataSongs.songs[currentIndex + 1];
     playSong(nextSongs.id);
-    pauseButton.classList.remove("pause");
-    nextButton.classList.add("next");
   }
+  previousButton.classList.remove("previos");
+  playButton.classList.remove("play");
+  pauseButton.classList.remove("pause");
+  nextButton.classList.add("next");
 };
