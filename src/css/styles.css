@@ -23,9 +23,17 @@
   }
   
   body {
-    background-color: var(--app-background-color);  
+    background: linear-gradient(135deg, #2e2e38, #3b3a3f, var( --highlight-color));
+    background-size: 300% 300%;
+    animation: gradientMove 8s ease infinite;
     color: var(--primary-color);
     font-family: var(--font-family);
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
   
   h1 {
@@ -222,45 +230,45 @@
    }
 
    /* Стилі еквалайзера */
-.equalizer {
-  display: flex;
-  padding: 7px;
-  align-items: center;
-  gap: 3px;
-  height: 20px;
-  visibility: hidden; /* Приховано за замовчуванням */
-}
-
-.equalizer span {
-  display: inline-block;
-  width: 1px;
-  height: 100%;
-  background-color: var(--highlight-color);
-  animation: bounce 1s infinite;
-  animation-delay: calc(var(--delay, 0) * 0.2s);
-}
-
-.equalizer span:nth-child(1) {
-  --delay: 1;
-}
-
-.equalizer span:nth-child(2) {
-  --delay: 2;
-}
-
-.equalizer span:nth-child(3) {
-  --delay: 3;
-}
-
-/* Анімація стовпчиків */
-@keyframes bounce {
-  0%, 100% {
-    height: 10px;
-  }
-  50% {
+   .equalizer {
+    display: none; /* Приховано за замовчуванням */
+    gap: 3px;
     height: 20px;
   }
-}
+  
+  .equalizer.active {
+    display: flex; /* Відображаємо еквалайзер при активації */
+  }
+  
+  .equalizer.active span {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background-color: var(--highlight-color); 
+    animation: bounce 1s infinite;
+    animation-delay: calc(var(--delay, 0) * 0.2s);
+  }
+  
+  .equalizer span:nth-child(1) {
+    --delay: 1;
+  }
+  
+  .equalizer span:nth-child(2) {
+    --delay: 2;
+  }
+  
+  .equalizer span:nth-child(3) {
+    --delay: 3;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      height: 10px;
+    }
+    50% {
+      height: 20px;
+    }
+  }
   
   #player-song-title,
   #player-song-artist {

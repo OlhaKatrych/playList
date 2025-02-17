@@ -10,5 +10,9 @@ export const pauseSong = () => {
   nextButton.classList.remove("next");
   previousButton.classList.remove("previous");
   pauseButton.classList.add("pause");
+  document.querySelectorAll(".equalizer").forEach((el) => {
+    el.classList.remove("active");
+  });
+
   audio.pause();
 };

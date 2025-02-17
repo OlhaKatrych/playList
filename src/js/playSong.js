@@ -5,7 +5,7 @@ export const dataSongs = await getDataSong();
 
 export const playButton = document.querySelector(".play");
 export const playSong = (id) => {
-  const song = dataSongs.songs.find((song) => song.id === Number(id));
+  const song = dataSongs.songs.find((song) => song.id === id);
 
   audio.src = song.src;
   audio.title = song.title;

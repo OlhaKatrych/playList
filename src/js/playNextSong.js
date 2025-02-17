@@ -16,4 +16,8 @@ export const playNextSong = () => {
   playButton.classList.remove("play");
   pauseButton.classList.remove("pause");
   nextButton.classList.add("next");
+
+  document.querySelectorAll(".equalizer").forEach((el) => {
+    el.classList.remove("active");
+  });
 };

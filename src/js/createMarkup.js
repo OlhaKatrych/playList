@@ -1,4 +1,4 @@
-import { playSong } from "./playSong.js";
+import { playSong, dataSongs } from "./playSong.js";
 const playlistSongs = document.querySelector("#playlist-songs");
 export const createMurkup = (array) => {
   const songsMarkup = array
@@ -21,28 +21,23 @@ export const createMurkup = (array) => {
         </li>`;
     })
     .join("");
+
   playlistSongs.innerHTML = songsMarkup;
   playlistSongs.addEventListener("click", (e) => {
     const button = e.target.closest(".playlist-song-info");
     if (!button) return;
     const songId = button.dataset.id;
-    playSong(songId);
-  });
-
-  document.querySelectorAll(".playlist-song-info").forEach((item) => {
-    item.addEventListener("click", function () {
-      // Знаходимо еквалайзер всередині треку
-      const equalizer = this.querySelector(".equalizer");
-
-      // Увімкнення/вимкнення ефекту програвання
-      if (
-        equalizer.style.visibility === "hidden" ||
-        equalizer.style.visibility === ""
-      ) {
-        equalizer.style.visibility = "visible";
-      } else {
-        equalizer.style.visibility = "hidden";
-      }
+    const songIdNumber = Number(songId);
+    playSong(songIdNumber);
+    document.querySelectorAll(".equalizer").forEach((el) => {
+      el.classList.remove("active");
     });
+    const currentSongElement = document.querySelector(
+      `#song-${songIdNumber} .equalizer`
+    );
+  
+    if (currentSongElement) {
+      currentSongElement.classList.add("active");
+    }
   });
 };
