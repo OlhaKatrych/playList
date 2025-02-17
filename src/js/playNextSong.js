@@ -12,7 +12,7 @@ export const playNextSong = () => {
     const nextSongs = dataSongs.songs[currentIndex + 1];
     playSong(nextSongs.id);
   }
-  previousButton.classList.remove("previos");
+  previousButton.classList.remove("previous");
   playButton.classList.remove("play");
   pauseButton.classList.remove("pause");
   nextButton.classList.add("next");
