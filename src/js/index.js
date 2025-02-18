@@ -1,9 +1,9 @@
-import { dataSongs, playSong, playButton } from "./playSong.js";
+import { dataSongs, playButton } from "./playSong.js";
+import { playButtonSong } from "./playButtonSong.js";
 import { createMurkup } from "./createMarkup.js";
 import { playNextSong, nextButton } from "./playNextSong.js";
 import { previousButton, playPreviousSong } from "./playPreviousSong.js";
 import { pauseButton, pauseSong } from "./pauseSong.js";
-import { setEqualIsActive } from "./helper.js";
 
 createMurkup(dataSongs.songs);
 
@@ -11,18 +11,8 @@ playButton.classList.remove("play");
 previousButton.classList.remove("previous");
 nextButton.classList.remove("next");
 pauseButton.classList.remove("pause");
-playButton.addEventListener("click", () => {
-  if (dataSongs.currentSong === null) {
-    playSong(dataSongs.songs[0].id);
-  } else {
-    playSong(dataSongs.currentSong.id);
-  }
-  setEqualIsActive();
-  pauseButton.classList.remove("pause");
-  nextButton.classList.remove("next");
-  previousButton.classList.remove("previous");
-  playButton.classList.add("play");
-});
+
+playButton.addEventListener("click", playButtonSong);
 
 pauseButton.addEventListener("click", pauseSong);
 
