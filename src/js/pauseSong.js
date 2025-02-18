@@ -12,7 +12,7 @@ export const pauseSong = () => {
   previousButton.classList.remove("previous");
   pauseButton.classList.add("pause");
   const currentEqualizer = getCurrentSongEqualizer();
-  console.log(currentEqualizer)
+  console.log(currentEqualizer);
   if (currentEqualizer) {
     currentEqualizer.classList.remove("active");
   }

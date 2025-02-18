@@ -1,4 +1,4 @@
-import { playSong, dataSongs } from "./playSong.js";
+import { playListSong } from "./playListSong.js";
 const playlistSongs = document.querySelector("#playlist-songs");
 
 export const createMurkup = (array) => {
@@ -24,21 +24,5 @@ export const createMurkup = (array) => {
     .join("");
 
   playlistSongs.innerHTML = songsMarkup;
-  playlistSongs.addEventListener("click", (e) => {
-    const button = e.target.closest(".playlist-song-info");
-    if (!button) return;
-    const songId = button.dataset.id;
-    const songIdNumber = Number(songId);
-    playSong(songIdNumber);
-    document.querySelectorAll(".equalizer").forEach((el) => {
-      el.classList.remove("active");
-    });
-    const currentSongElement = document.querySelector(
-      `#song-${songIdNumber} .equalizer`
-    );
-
-    if (currentSongElement) {
-      currentSongElement.classList.add("active");
-    }
-  });
+  playlistSongs.addEventListener("click", playListSong);
 };

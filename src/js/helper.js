@@ -11,5 +11,9 @@ export const getCurrentIndexSong = () =>
 
 export const getCurrentSongEqualizer = () => {
   if (!dataSongs.currentSong) return null;
-  return document.querySelector(`[data-id="${dataSongs.currentSong.id}"].equalizer .active`);
+  console.log(dataSongs.currentSong);
+  const equalizerActive = document.querySelector(
+    `.playlist-song-info[data-id="${dataSongs.currentSong.id}"] .equalizer`
+  );
+  return equalizerActive
 };

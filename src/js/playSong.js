@@ -14,6 +14,6 @@ export const playSong = (id) => {
     audio.currentTime = dataSongs.songCurrentTime;
   }
   dataSongs.currentSong = song;
-  console.log(dataSongs.currentSong);
+ 
   audio.play();
 };
