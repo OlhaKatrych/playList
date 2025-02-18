@@ -7,3 +7,10 @@ export const sortedSongs = (array) => {
 
 export const getCurrentIndexSong = () =>
   dataSongs.songs.indexOf(dataSongs.currentSong);
+
+export const getCurrentSongEqualizer = () => {
+  if (!dataSongs.currentSong) return null;
+  return document.querySelector(
+    `.song[data-id="${dataSongs.currentSong.id}"] .equalizer`
+  );
+};

@@ -1,5 +1,6 @@
 import { playSong, dataSongs } from "./playSong.js";
 const playlistSongs = document.querySelector("#playlist-songs");
+
 export const createMurkup = (array) => {
   const songsMarkup = array
     .map((song) => {
@@ -35,7 +36,7 @@ export const createMurkup = (array) => {
     const currentSongElement = document.querySelector(
       `#song-${songIdNumber} .equalizer`
     );
-  
+
     if (currentSongElement) {
       currentSongElement.classList.add("active");
     }

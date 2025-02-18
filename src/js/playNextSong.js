@@ -2,6 +2,7 @@ import { dataSongs, playSong, playButton } from "./playSong.js";
 import { getCurrentIndexSong } from "./helper.js";
 import { pauseButton } from "./pauseSong.js";
 import { previousButton } from "./playPreviousSong.js";
+
 export const nextButton = document.querySelector(".next");
 
 export const playNextSong = () => {
