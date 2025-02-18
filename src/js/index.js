@@ -7,9 +7,6 @@ import { getCurrentSongEqualizer } from "./helper.js";
 
 createMurkup(dataSongs.songs);
 
-const equalizer = document.querySelector(".equalizer");
-console.log(equalizer);
-
 playButton.classList.remove("play");
 previousButton.classList.remove("previous");
 nextButton.classList.remove("next");
@@ -21,9 +18,6 @@ playButton.addEventListener("click", () => {
   } else {
     playSong(dataSongs.currentSong.id);
   }
-  document
-    .querySelectorAll(".equalizer")
-    .forEach((eq) => eq.classList.remove("active"));
   const currentEqualizer = getCurrentSongEqualizer();
   if (currentEqualizer) {
     currentEqualizer.classList.add("active");
