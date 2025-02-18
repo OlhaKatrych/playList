@@ -9,11 +9,23 @@ export const sortedSongs = (array) => {
 export const getCurrentIndexSong = () =>
   dataSongs.songs.indexOf(dataSongs.currentSong);
 
-export const getCurrentSongEqualizer = () => {
+export const removeClassActive = () => {
+  document.querySelectorAll(".equalizer").forEach((el) => {
+    el.classList.remove("active");
+  });
+};
+
+export const getCurrentSongValue = () => {
   if (!dataSongs.currentSong) return null;
-  console.log(dataSongs.currentSong);
-  const equalizerActive = document.querySelector(
+  const equalIsActive = document.querySelector(
     `.playlist-song-info[data-id="${dataSongs.currentSong.id}"] .equalizer`
   );
-  return equalizerActive
+  return equalIsActive;
+};
+
+export const setEqualIsActive = () => {
+  const equalIsActive = getCurrentSongValue();
+  if (equalIsActive) {
+    equalIsActive.classList.add("active");
+  }
 };

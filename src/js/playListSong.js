@@ -3,6 +3,7 @@ import { pauseButton } from "./pauseSong.js";
 import { previousButton } from "./playPreviousSong.js";
 import { playButton } from "./playSong.js";
 import { nextButton } from "./playNextSong.js";
+import { removeClassActive } from "./helper.js";
 
 export const playListSong = (e) => {
   const button = e.target.closest(".playlist-song-info");
@@ -10,9 +11,7 @@ export const playListSong = (e) => {
   const songId = button.dataset.id;
   const songIdNumber = Number(songId);
   playSong(songIdNumber);
-  document.querySelectorAll(".equalizer").forEach((el) => {
-    el.classList.remove("active");
-  });
+  removeClassActive();
   const currentSongElement = document.querySelector(
     `#song-${songIdNumber} .equalizer`
   );
