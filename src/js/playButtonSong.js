@@ -4,6 +4,7 @@ import { pauseButton } from "./pauseSong.js";
 import { nextButton } from "./playNextSong.js";
 import { previousButton } from "./playPreviousSong.js";
 import { playButton } from "./playSong.js";
+
 export const playButtonSong = () => {
   if (dataSongs.currentSong === null) {
     playSong(dataSongs.songs[0].id);

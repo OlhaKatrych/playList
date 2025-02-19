@@ -118,6 +118,19 @@
     align-items: center;
     justify-content: center;
   }
+
+  .player-song-title {
+
+    position: absolute;
+    top: 10px;
+    left: 7px;
+
+  }
+
+  .tracking-in-expand{animation:tracking-in-expand 3s cubic-bezier(.215,.61,.355,1.000) 1000 both}
+
+
+ @keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
   
   .player-display {
     position: absolute;
@@ -131,7 +144,7 @@
     width: 100%;
     
   }
-  
+
   .player-buttons svg {
     fill: var(--primary-color);
   }

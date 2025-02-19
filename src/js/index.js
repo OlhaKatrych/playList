@@ -4,6 +4,7 @@ import { createMurkup } from "./createMarkup.js";
 import { playNextSong, nextButton } from "./playNextSong.js";
 import { previousButton, playPreviousSong } from "./playPreviousSong.js";
 import { pauseButton, pauseSong } from "./pauseSong.js";
+import { shuffleButton, shuffle } from "./shuffle.js";
 
 createMurkup(dataSongs.songs);
 
@@ -19,3 +20,5 @@ pauseButton.addEventListener("click", pauseSong);
 nextButton.addEventListener("click", playNextSong);
 
 previousButton.addEventListener("click", playPreviousSong);
+
+shuffleButton.addEventListener("click", shuffle);
