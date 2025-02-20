@@ -1,9 +1,10 @@
-import { getDataSong } from "./getDataFromJASON.js";
+//import { getDataSong } from "./getDataFromJASON.js";
 import { createMurkup } from "./createMarkup.js";
 import { pauseSong } from "./pauseSong.js";
 import { setPlayerDisplay } from "./setPlayerDisplay.js";
-const dataSongShuffle = await getDataSong();
-console.log(dataSongShuffle);
+
+//const dataSongShuffle = await getDataSong();
+import { dataSongs } from "./playSong.js";
 
 export const shuffleButton = document.querySelector(".shuffle");
 
@@ -14,11 +15,11 @@ const shuffleArray = (array) => {
   }
 };
 export const shuffle = () => {
-  shuffleArray(dataSongShuffle.songs);
-  dataSongShuffle.currentSong = null;
-  dataSongShuffle.songCurrentTime = 0;
+  shuffleArray(dataSongs.songs);
+  dataSongs.currentSong = null;
+  dataSongs.songCurrentTime = 0;
 
-  createMurkup(dataSongShuffle.songs);
+  createMurkup(dataSongs.songs);
   pauseSong();
   setPlayerDisplay();
 };

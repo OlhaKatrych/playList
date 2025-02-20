@@ -1,5 +1,6 @@
 import { getDataSong } from "./getDataFromJASON.js";
 import { setPlayerDisplay } from "./setPlayerDisplay.js";
+import { playNextSong } from "./playNextSong.js";
 
 export const audio = new Audio();
 export const dataSongs = await getDataSong();
@@ -7,8 +8,8 @@ export const dataSongs = await getDataSong();
 export const playButton = document.querySelector(".play");
 export const playSong = (id) => {
   const song = dataSongs.songs.find((song) => song.id === id);
-  
-  audio.autoplay = true;
+
+  audio.controls = true;
   audio.src = song.src;
   audio.title = song.title;
 
@@ -20,5 +21,5 @@ export const playSong = (id) => {
   dataSongs.currentSong = song;
   setPlayerDisplay();
   audio.play();
-  console.log(audio);
+  audio.addEventListener("ended", playNextSong);
 };

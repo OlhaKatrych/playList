@@ -211,10 +211,11 @@
   
   .playlist-song {
     display: flex;
-    height: 55px;
+    height: 50px;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+    gap: 15px;
   }
   
   [aria-current="true"] {
@@ -226,13 +227,14 @@
   }
   
   .playlist-song-info {
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     column-gap: 7px;
-    padding: 5px 0;
+    padding: 5px 2px;
     font-family: var(--font-family);
    }
 
@@ -281,6 +283,22 @@
     50% {
       height: 20px;
     }
+  }
+
+  /* Progress - Bar*/
+
+  .progress-container {
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer; 
+  }
+
+  .progress-bar {
+    width: 0%;
+    height: 100%;
+    transition: width 0.1s linear;
   }
   
   #player-song-title,
