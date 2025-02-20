@@ -1,4 +1,5 @@
 import { playListSong } from "./playListSong.js";
+import { audio } from "./playSong.js";
 const playlistSongs = document.querySelector("#playlist-songs");
 
 export const createMurkup = (array) => {
@@ -7,9 +8,6 @@ export const createMurkup = (array) => {
       return `   <li id="song-${song.id}" class="playlist-song">
         <button type="button" class="playlist-song-info" data-id="${song.id}">
             <span class="playlist-song-title aria-label=${song.title}">${song.title}</span>
-            <div class="progress-container" id="progress-container">
-               <div id="progress-bar" class="progress-bar"></div>
-            </div>
             <span class="playlist-song-duration" aria-label=${song.duration}>${song.duration}</span>
             <div class="equalizer" id="equalizer">
             <span class="equalizer-span"></span>
