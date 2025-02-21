@@ -287,8 +287,24 @@
 
   /* Progress - Bar*/
 
-  
-  
+  .progress-container {
+    display: flex;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+  }
+
+  .progress-bar {
+    
+    width: 0%;
+    height: 100%;  
+   }
+
+   .progress-bar.active {
+    background-color: red;
+   }
+
   #player-song-title,
   #player-song-artist {
     margin: 0;

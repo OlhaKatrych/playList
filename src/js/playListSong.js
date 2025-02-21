@@ -12,6 +12,9 @@ export const playListSong = (e) => {
   const songIdNumber = Number(songId);
   playSong(songIdNumber);
   removeClassActive();
+
+  //  Find an equalizer and add the active class.
+
   const currentSongElement = document.querySelector(
     `#song-${songIdNumber} .equalizer`
   );
@@ -19,6 +22,17 @@ export const playListSong = (e) => {
   if (currentSongElement) {
     currentSongElement.classList.add("active");
   }
+
+  // Find a progress-bar and add the active class.
+
+  const currentProgressBar = document.querySelector(
+    `#song-${songIdNumber} .progress-bar`
+  );
+  console.log("Знайдено progress-bar?", currentProgressBar);
+  if (currentProgressBar) {
+    currentProgressBar.classList.add("active");
+  }
+
   pauseButton.classList.remove("pause");
   previousButton.classList.remove("previous");
   playButton.classList.remove("play");

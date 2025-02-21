@@ -8,6 +8,9 @@ export const createMurkup = (array) => {
       return `   <li id="song-${song.id}" class="playlist-song">
         <button type="button" class="playlist-song-info" data-id="${song.id}">
             <span class="playlist-song-title aria-label=${song.title}">${song.title}</span>
+            <div class="progress-container">
+              <div class="progress-bar" data-id="${song.id}"></div>
+            </div>
             <span class="playlist-song-duration" aria-label=${song.duration}>${song.duration}</span>
             <div class="equalizer" id="equalizer">
             <span class="equalizer-span"></span>
