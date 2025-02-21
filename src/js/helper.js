@@ -29,3 +29,25 @@ export const setEqualIsActive = () => {
     equalIsActive.classList.add("active");
   }
 };
+
+export const removeClassActiveProgressBar = () => {
+  const activeProgressBar =  document.querySelector(".progress-bar");
+  console.log(activeProgressBar)
+  activeProgressBar.classList.remove("active");
+  };
+
+
+export const getCurrentSongProgressBar = () => {
+  if (!dataSongs.currentSong) return null;
+  const equalIsActive = document.querySelector(
+    `.playlist-song-info[data-id="${dataSongs.currentSong.id}"] .progress-bar`
+  );
+  return equalIsActive;
+};
+
+export const setEqualIsActiveProgressBar = () => {
+  const equalIsActive = getCurrentSongProgressBar();
+  if (equalIsActive) {
+    equalIsActive.classList.add("active");
+  }
+};
