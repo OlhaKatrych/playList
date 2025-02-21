@@ -13,6 +13,7 @@ export const playListSong = (e) => {
   playSong(songIdNumber);
   removeClassActive();
   removeClassActiveProgressBar();
+  
   //  Find an equalizer and add the active class.
 
   const currentSongElement = document.querySelector(
@@ -28,7 +29,6 @@ export const playListSong = (e) => {
   const currentProgressBar = document.querySelector(
     `#song-${songIdNumber} .progress-bar`
   );
-  console.log("Знайдено progress-bar?", currentProgressBar);
   if (currentProgressBar) {
     currentProgressBar.classList.add("active");
   }

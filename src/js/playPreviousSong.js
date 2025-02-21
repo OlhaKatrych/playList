@@ -5,6 +5,8 @@ import {
   getCurrentIndexSong,
   removeClassActive,
   setEqualIsActive,
+  removeClassActiveProgressBar,
+  setProgressBarIsActive,
 } from "./helper.js";
 
 export const previousButton = document.querySelector(".previous");
@@ -17,8 +19,12 @@ export const playPreviousSong = () => {
     const previousSong = dataSongs.songs[currentIndex - 1];
     playSong(previousSong.id);
   }
+  // Equalizer
   removeClassActive();
   setEqualIsActive();
+  // Progress bar
+  removeClassActiveProgressBar();
+  setProgressBarIsActive();
   playButton.classList.remove("play");
   pauseButton.classList.remove("pause");
   nextButton.classList.remove("next");

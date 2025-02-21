@@ -1,5 +1,5 @@
 import { dataSongs, playSong } from "./playSong.js";
-import { setEqualIsActive } from "./helper.js";
+import { setEqualIsActive, setProgressBarIsActive } from "./helper.js";
 import { pauseButton } from "./pauseSong.js";
 import { nextButton } from "./playNextSong.js";
 import { previousButton } from "./playPreviousSong.js";
@@ -11,7 +11,10 @@ export const playButtonSong = () => {
   } else {
     playSong(dataSongs.currentSong.id);
   }
+  // Equalizer
   setEqualIsActive();
+  // Progress bar
+  setProgressBarIsActive();
   pauseButton.classList.remove("pause");
   nextButton.classList.remove("next");
   previousButton.classList.remove("previous");

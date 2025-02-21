@@ -31,11 +31,11 @@ export const setEqualIsActive = () => {
 };
 
 export const removeClassActiveProgressBar = () => {
-  const activeProgressBar =  document.querySelector(".progress-bar");
-  console.log(activeProgressBar)
-  activeProgressBar.classList.remove("active");
-  };
-
+  document.querySelectorAll(".progress-bar.active").forEach((bar) => {
+    bar.classList.remove("active");
+    bar.style.width = "0%";
+  });
+};
 
 export const getCurrentSongProgressBar = () => {
   if (!dataSongs.currentSong) return null;
@@ -45,7 +45,7 @@ export const getCurrentSongProgressBar = () => {
   return equalIsActive;
 };
 
-export const setEqualIsActiveProgressBar = () => {
+export const setProgressBarIsActive = () => {
   const equalIsActive = getCurrentSongProgressBar();
   if (equalIsActive) {
     equalIsActive.classList.add("active");
