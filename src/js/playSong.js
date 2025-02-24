@@ -42,20 +42,14 @@ export const playSong = (id) => {
 
   setPlayerDisplay();
 
-  // Видаляємо старий обробник перед додаванням нового
-  if (window.currentProgressContainer) {
-    console.log("Removing old event listener");
-    window.currentProgressContainer.removeEventListener("click", setProgress);
-  }
-  window.currentProgressContainer = progressContainer;
-  console.log("New progressContainer set");
+  // Removing old handlers before adding new ones
 
   audio.removeEventListener("timeupdate", updateProgress);
   audio.removeEventListener("ended", playNextSong);
 
-  // Додаємо нові обробники
+  // Adding new handlers
+
   audio.addEventListener("timeupdate", () => updateProgress(progressBar));
   progressContainer.addEventListener("click", setProgress);
-  console.log("Event listener added to progressContainer");
   audio.addEventListener("ended", playNextSong);
 };

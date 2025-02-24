@@ -13,13 +13,14 @@ const shuffleArray = (array) => {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
 };
 export const shuffle = () => {
-  shuffleArray(dataSongs.songs);
+  const randomSongs = shuffleArray(dataSongs.songs);
   dataSongs.currentSong = null;
   dataSongs.songCurrentTime = 0;
 
-  createMurkup(dataSongs.songs);
+  createMurkup(randomSongs);
   pauseSong();
   setPlayerDisplay();
 };
