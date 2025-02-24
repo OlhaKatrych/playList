@@ -1,4 +1,4 @@
-import { audio } from "./playSong";
+import { audio } from "./playSong.js";
 
 let countdownInterval;
 let totalDuration = 0;
