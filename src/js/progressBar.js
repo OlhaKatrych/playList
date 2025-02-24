@@ -7,9 +7,8 @@ export const updateProgress = (progressBar) => {
 };
 
 export const setProgress = (e) => {
-  console.log("setProgress called!");
   const progressContainer = e.currentTarget;
-  console.log(progressContainer);
+  
   const width = progressContainer.clientWidth;
   const clickX = e.clientX - progressContainer.getBoundingClientRect().left;
   const duration = audio.duration;
@@ -20,7 +19,6 @@ export const setProgress = (e) => {
   }
 
   const newTime = (clickX / width) * duration;
-  console.log(`Клік: ${clickX}px, Новий час: ${newTime}s`);
 
   audio.pause();
   audio.addEventListener("canplaythrough", function onCanPlayThrough() {

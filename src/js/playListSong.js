@@ -13,7 +13,7 @@ export const playListSong = (e) => {
   playSong(songIdNumber);
   removeClassActive();
   removeClassActiveProgressBar();
-  
+
   //  Find an equalizer and add the active class.
 
   const currentSongElement = document.querySelector(
