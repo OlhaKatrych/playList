@@ -7,22 +7,25 @@ export const updateProgress = (progressBar) => {
 };
 
 export const setProgress = (e) => {
+  console.log("setProgress called!");
   const progressContainer = e.currentTarget;
   console.log(progressContainer);
-
   const width = progressContainer.clientWidth;
-  console.log(width);
-
-  const clickX = e.offsetX;
-  console.log(clickX);
-
+  const clickX = e.clientX - progressContainer.getBoundingClientRect().left;
   const duration = audio.duration;
-  console.log(duration);
 
-  if (isNaN(duration)) return;
+  if (isNaN(audio.duration) || audio.readyState < 2) {
+    console.warn("Аудіо ще не завантажене, duration:", audio.duration);
+    return;
+  }
 
   const newTime = (clickX / width) * duration;
-  audio.currentTime = newTime;
+  console.log(`Клік: ${clickX}px, Новий час: ${newTime}s`);
 
-  console.log(`Клік: ${clickX}px, Новий час: ${audio.currentTime}s`);
+  audio.pause();
+  audio.addEventListener("canplaythrough", function onCanPlayThrough() {
+    audio.currentTime = newTime;
+    audio.play().catch((error) => console.log("Error playing:", error));
+    audio.removeEventListener("canplaythrough", onCanPlayThrough);
+  });
 };

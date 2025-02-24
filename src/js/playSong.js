@@ -11,41 +11,51 @@ export const playButton = document.querySelector(".play");
 export const playSong = (id) => {
   const song = dataSongs.songs.find((song) => song.id === id);
   const progressBar = document.querySelector(`#song-${id} .progress-bar`);
-  const progressContainer = document.querySelector(".progress-container");
-
+  const progressContainer = document.querySelector(
+    `#song-${id} .progress-container`
+  );
+  console.log(progressContainer);
   if (!progressBar || !progressContainer) {
     console.error("progressBar or progressContainer not found!");
     return;
   }
 
+  const isSameSong = dataSongs.currentSong?.id === id;
   audio.src = song.src;
+  audio.load();
   audio.title = song.title;
 
   audio.onloadedmetadata = () => {
     console.log("Metadata loaded, duration:", audio.duration);
-    if (!isNaN(audio.duration)) updateProgress(progressBar);
+    if (!isNaN(audio.duration)) {
+      updateProgress(progressBar);
+      if (isSameSong && dataSongs.songCurrentTime) {
+        audio.currentTime = dataSongs.songCurrentTime;
+      } else {
+        audio.currentTime = 0;
+      }
+      audio.play().catch((err) => console.log("Error playing:", err));
+    }
   };
 
-  if (dataSongs.currentSong?.id !== id) {
-    audio.currentTime = 0;
-  } else {
-    audio.currentTime = dataSongs.songCurrentTime;
-  }
   dataSongs.currentSong = song;
 
   setPlayerDisplay();
-  audio.play();
 
-  // Видаляємо старі обробники
+  // Видаляємо старий обробник перед додаванням нового
+  if (window.currentProgressContainer) {
+    console.log("Removing old event listener");
+    window.currentProgressContainer.removeEventListener("click", setProgress);
+  }
+  window.currentProgressContainer = progressContainer;
+  console.log("New progressContainer set");
+
   audio.removeEventListener("timeupdate", updateProgress);
-  progressContainer.removeEventListener("click", setProgress);
   audio.removeEventListener("ended", playNextSong);
 
   // Додаємо нові обробники
   audio.addEventListener("timeupdate", () => updateProgress(progressBar));
-  progressContainer.addEventListener("click", (e) => {
-    console.log("Progress clicked!");
-    setProgress(e);
-  });
+  progressContainer.addEventListener("click", setProgress);
+  console.log("Event listener added to progressContainer");
   audio.addEventListener("ended", playNextSong);
 };

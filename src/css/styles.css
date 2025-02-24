@@ -293,6 +293,7 @@
     height: 5px;
     border-radius: 5px;
     background-color: var(--secondary-color);
+    pointer-events: auto;
   }
 
   .progress-bar {
