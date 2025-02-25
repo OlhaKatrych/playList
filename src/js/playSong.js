@@ -21,13 +21,15 @@ export const playSong = (id) => {
   );
 
   if (!progressBar || !progressContainer || !timerDisplay) {
-    console.error("Не знайдено елементи прогресу або таймера!");
+    console.error(
+      "There are not found progressBar or  progressContainer or timerDisplay"
+    );
     return;
   }
 
   const isSameSong = dataSongs.currentSong?.id === id;
 
-  stopCountdown(); // Зупиняємо попередній таймер перед програванням нового треку
+  stopCountdown(); // Stopping timer the previous track before playing the new one
 
   audio.src = song.src;
   audio.load();
@@ -37,7 +39,7 @@ export const playSong = (id) => {
     console.log(`Metadata loaded for ${song.title}, duration:`, audio.duration);
 
     if (!isNaN(audio.duration)) {
-      setTotalDuration(audio.duration); // Передаємо тривалість у timer.js
+      setTotalDuration(audio.duration); // Passing audio.duration to timer.js
       updateProgress(progressBar);
 
       if (isSameSong && dataSongs.songCurrentTime) {
@@ -46,12 +48,15 @@ export const playSong = (id) => {
         audio.currentTime = 0;
       }
 
-      audio.play().catch((err) => console.log("Error playing:", err));
-      startCountdown(timerDisplay); // Передаємо конкретний таймер
+      audio.play().catch((error) => console.log("Error playing:", error));
+      startCountdown(timerDisplay); // Passing the timer to timer.js
     }
   };
-
+ 
   dataSongs.currentSong = song;
+
+  // Setting the song's title to the display
+
   setPlayerDisplay();
 
   // Removing old handlers

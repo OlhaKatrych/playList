@@ -13,7 +13,7 @@ const updateTimer = (timerDisplay) => {
   const remainingTime = Math.max(totalDuration - audio.currentTime, 0);
   const minutes = Math.floor(remainingTime / 60);
   const seconds = Math.floor(remainingTime % 60);
-  
+
   timerDisplay.textContent = `${minutes.toString().padStart(2, "0")}:${seconds
     .toString()
     .padStart(2, "0")}`;
@@ -24,13 +24,12 @@ export const startCountdown = (timerDisplay) => {
 
   if (!totalDuration || totalDuration === 0) {
     totalDuration = isNaN(audio.duration) ? 0 : audio.duration;
-   
   }
-  console.log(totalDuration)
+
   updateTimer(timerDisplay);
   countdownInterval = setInterval(() => updateTimer(timerDisplay), 1000);
 };
 
 export const stopCountdown = () => {
-    clearInterval(countdownInterval);
-  };
+  clearInterval(countdownInterval);
+};

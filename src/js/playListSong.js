@@ -33,6 +33,8 @@ export const playListSong = (e) => {
     currentProgressBar.classList.add("active");
   }
 
+  localStorage.setItem(`#song-${songIdNumber}`, songId);
+
   pauseButton.classList.remove("pause");
   previousButton.classList.remove("previous");
   playButton.classList.remove("play");
