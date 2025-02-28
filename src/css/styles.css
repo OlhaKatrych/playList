@@ -349,12 +349,14 @@
       width: 380px;
     }
   
-   
+    .player {
+      height: 280px;
+    }
   
     #playlist-songs {
       
       padding: 5px 6px;
-     
+      
     }
   
     #playlist-songs::-webkit-scrollbar {
