@@ -344,6 +344,9 @@
   }
   
   @media (max-width: 768px) {
+    .container {
+      top: 5px;
+    }
     .player,
     .playlist {
       width: 380px;
