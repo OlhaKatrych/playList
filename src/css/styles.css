@@ -344,11 +344,6 @@
   }
   
   @media (max-width: 768px) {
-    
-    .container {
-    top: 50%;
-    transform: translate(-50%, -50%);
-    }
     .player,
     .playlist {
       width: 380px;
@@ -356,7 +351,7 @@
   
     .player,
     .playlist {
-      height: 250px;
+      height: 300px;
     }
   
     #playlist-songs {
