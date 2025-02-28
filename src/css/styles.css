@@ -28,6 +28,8 @@
     animation: gradientMove 8s ease infinite;
     color: var(--primary-color);
     font-family: var(--font-family);
+
+    overflow-y: auto;
   }
 
   @keyframes gradientMove {
@@ -50,6 +52,9 @@
   }
   
   .container {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -176,21 +181,16 @@
     color: var(--primary-color);
     cursor: pointer;
     font-size: var(--root-font-size);
-    outline-color: var(--highlight-color);
     text-align: center;
   }
  
-  .playlist-song {
-    outline-color: var(--highlight-color);
-  }
-  
   .playlist li:not(:last-child) {
     border-bottom: 1px solid var(--background-color);
   }
   
   /* Playlist */
   .playlist {
-    height: auto;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,7 +207,14 @@
     visibility: visible;
     justify-content: start;
     list-style: none;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: var(--background-color) var(--secondary-color);
+    scrollbar-width:thin;
   }
+
+ 
   
   .playlist-song {
     display: flex;
@@ -216,14 +223,6 @@
     align-items: center;
     padding: 5px;
     gap: 15px;
-  }
-  
-  [aria-current="true"] {
-    background-color: var(--background-color);
-  }
-  
-  [aria-current="true"] p {
-    color: var(--highlight-color);
   }
   
   .playlist-song-info {
@@ -244,23 +243,24 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
    }
 
-   /* Стилі еквалайзера */
+   /* Equalizer */
    .equalizer {
-    display: none; /* Приховано за замовчуванням */
-    gap: 3px;
-    height: 20px;
+    display: none; /* Hidden by default */
+    
   }
   
-  .equalizer.active {
-    display: flex; /* Відображаємо еквалайзер при активації */
+  .equalizer.active { /* Show equalizer by activation */
+    display: flex;
+    gap: 3px;
+    height: 20px; 
   }
   
   .equalizer.active span {
     display: inline-block;
     width: 1px;
-    height: 10px;
+    height: 100%;
     background-color: var(--highlight-color); 
-    animation: bounce 1s infinite;
+    animation: bounce 1.5s infinite;
     animation-delay: calc(var(--delay, 0) * 0.2s);
   }
   
@@ -297,28 +297,19 @@
   }
 
   .progress-bar {
-    
     width: 0%;
     height: 100%;  
-    transition: width 0.5s ease-in-out
    }
 
    .progress-bar.active {
-
-    background-color: var(--foreground-color);
-   
+      background-color: var(--foreground-color);
+      transition: width 0.7s ease-in-out
    }
 
-  #player-song-title,
-  #player-song-artist {
+  #player-song-title {
     margin: 0;
   }
-  
-  #player-song-artist {
-    color: var(--highlight-color);
-    font-size: 0.75rem;
-  }
-  
+   
   #player-song-title {
     font-size: 1.125rem;
   }
@@ -327,11 +318,6 @@
     font-size: 0.85rem;
     width: 241px;
     text-align: left;
-  }
-  
-  .playlist-song-artist {
-    font-size: 0.725rem;
-    width: 80px;
   }
   
   .playlist-song-duration {
@@ -357,14 +343,15 @@
     fill: #ff0000;
   }
   
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     .player,
     .playlist {
-      width: 300px;
+      width: 380px;
     }
   
-    .player {
-      height: 340px;
+    .player,
+    .playlist {
+      height: 250px;
     }
   
     #playlist-songs {
@@ -373,11 +360,11 @@
       overflow-y: scroll;
       overflow-x: hidden;
       scrollbar-color: var(--background-color) var(--secondary-color);
-      scrollbar-width: thin;
+      scrollbar-width:thin;
     }
   
     #playlist-songs::-webkit-scrollbar {
-      width: 5px;
+      width: 1px;
     }
   
     #playlist-songs::-webkit-scrollbar-track {
@@ -400,20 +387,28 @@
     .playlist-bar,
     .player-content,
     #playlist-songs {
-      width: 280px;
+      width: 380px;
     }
   
     .playlist-song {
       justify-content: space-between;
     }
   
-    .playlist-song-title {
-      width: 140px;
-    }
-  
-    .playlist-song-artist {
-      width: 40px;
-    }
+    .player-song-title {
+      position: absolute;
+      top: 18px;
+      left: 7px;
+  }
+
+  .player-buttons {
+
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%);
+    gap: 20px;
+   
+}
   
     .playlist-song-duration > button {
       padding: 0;
@@ -424,26 +419,10 @@
       position: relative;
       justify-items: center;
       height: 100%;
-    }
-  
-    #player-album-art {
-      z-index: -100;
-      height: 280px;
-      box-shadow: none;
-      background: #000;
-    }
-  
-    #player-album-art img {
-      width: 100%;
-      opacity: 0.6;
-    }
-  
-    .player-display-song-artist {
-      padding: 0 10px;
-    }
-  
-    .player-display-song-artist > p {
-      white-space: pre-wrap;
+      background-image: url("https://bnmusic.kz/wp-content/uploads/2020/04/imagine-dragons-to-perform-at-uefa-champions-league-final-opening-ceremony-706x471.jpg");
+      background-repeat: no-repeat;
+      background-size:cover;
+      background-position-x:center;
     }
   
     .player-display {
@@ -456,4 +435,5 @@
       justify-content: space-between;
       text-align: center;
     }
+
   }

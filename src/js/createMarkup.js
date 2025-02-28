@@ -10,7 +10,7 @@ export const createMurkup = (array) => {
             <div class="progress-container">
               <div class="progress-bar" data-id="${song.id}"></div>
             </div>
-            <span class="playlist-song-duration" aria-label=${song.duration}>${song.duration}</span>
+            <span class="playlist-song-duration" aria-label=${song.duration}>0${song.duration}</span>
             <div class="equalizer" id="equalizer">
             <span class="equalizer-span"></span>
             <span class="equalizer-span"></span>
