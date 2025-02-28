@@ -349,8 +349,9 @@
       width: 380px;
     }
   
+    .player,
     .playlist {
-      height: 300px;
+      height: 250px;
     }
   
     #playlist-songs {
