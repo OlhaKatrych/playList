@@ -352,6 +352,11 @@
     .player {
       height: 280px;
     }
+
+    .playlist {
+
+      height: 380px;
+    }
   
     #playlist-songs {
       
@@ -399,7 +404,7 @@
   .player-buttons {
 
     position: absolute;
-    top: 55%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%);
     gap: 20px;
